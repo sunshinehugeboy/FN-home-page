@@ -4,7 +4,12 @@ import tab1 from './components/tabs/tab1.vue';
 import tab2 from './components/tabs/tab2.vue';
 import tab3 from './components/tabs/tab3.vue';
 import loader from './components/loader.vue';
-import polarchart from './components/polarchart.vue';
+import skillbars from './components/skillbars.vue';
+import timeline from './components/timeline.vue';
+import timelineDetail from './components/timelineDetail.vue';
+import timelineAddEvent from './components/timelineAddEvent.vue';
+import messageBoard from './components/messageBoard.vue';
+import digitalTwin from './components/digitalTwin.vue';
 import config from './config.js';
 import { getCookie } from './utils/cookieUtils.js';
 import { setMeta,getFormattedTime,getFormattedDate,dataConsole } from './utils/common.js';
@@ -12,7 +17,7 @@ import { useDisplay } from 'vuetify'
 
 export default {
   components: {
-    tab1,tab2,tab3,loader,homeright,typewriter,polarchart
+    tab1,tab2,tab3,loader,homeright,typewriter,skillbars,timeline,timelineDetail,timelineAddEvent,messageBoard,digitalTwin
   },
   setup() {
     const { xs,sm,md } = useDisplay();
@@ -27,6 +32,10 @@ export default {
       configdata: config,
       dialog1: false,
       dialog2: false,
+      dialog3: false,  // 时间河详情弹窗
+      dialog4: false,  // 时间河新增事件弹窗
+      openEventData: null,
+      timelineRef: null,
       personalizedtags: null,
       videosrc: '',
       ismusicplayer: false,
@@ -95,7 +104,7 @@ export default {
                 const imgs = new Image();
                 imgs.src = url;
                 imgs.onload = () => resolve();
-                imgs.onerror = (err) => reject(err);
+                imgs.onerror = () => resolve();
             });
           })
 
@@ -113,7 +122,7 @@ export default {
               img.src = imageurl;
               // resolve() 函数通将一个 Promise 对象从未完成状态转变为已完成状态
               img.onload = () => {resolve();};
-              img.onerror = (err) => {reject(err);};
+              img.onerror = () => {resolve();};
             }else{
               const video = this.$refs.VdPlayer;
               video.onloadedmetadata = () => {
@@ -270,7 +279,7 @@ export default {
     async getMusicInfo(){
       this.musicinfoLoading = true;
       try {
-        const response = await fetch(`https://api.i-meto.com/meting/api?server=${this.configdata.musicPlayer.server}&type=${this.configdata.musicPlayer.type}&id=${this.configdata.musicPlayer.id}`
+        const response = await fetch(`https://api.injahow.cn/meting/?server=${this.configdata.musicPlayer.server}&type=${this.configdata.musicPlayer.type}&id=${this.configdata.musicPlayer.id}`
         );
         if (!response.ok) {
           throw new Error('网络请求失败');
@@ -369,5 +378,27 @@ export default {
     collapseSwitch() {
       this.isExpanded = false;
     },
+
+    // ===== 时间河方法 =====
+    openTimelineDetail(event) {
+      this.openEventData = event;
+      this.dialog3 = true;
+    },
+    closeTimelineDetail() {
+      this.dialog3 = false;
+      this.openEventData = null;
+    },
+    openAddEvent() {
+      this.dialog4 = true;
+    },
+    onEventAdded() {
+      // 通知 timeline 组件刷新
+      const tl = this.$refs.timelineRef;
+      if (tl && typeof tl.reloadAfterAdd === 'function') tl.reloadAfterAdd();
+    },
+    onCommentAdded(eventId) {
+      const tl = this.$refs.timelineRef;
+      if (tl && typeof tl.bumpComment === 'function') tl.bumpComment(eventId);
+    }
   }
 };

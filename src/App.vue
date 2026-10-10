@@ -71,7 +71,7 @@
                 </v-card>
 
                 <div class="leleo-left-chart">
-                    <polarchart :style="xs||sm?{'height':'210px'}:{'height':'270px'}"/>
+                    <skillbars/>
                 </div>
 
                 <v-container class="leleo-left-socialIconsContainer">
@@ -111,6 +111,12 @@
             <v-col cols="12" md="8" lg="9" style="height: 100vh;" :style="xs||sm ?{}:{'overflow': 'auto'}">
                 <homeright :configdata=configdata :formattedTime=formattedTime 
                 :formattedDate=formattedDate :projectcards=projectcards></homeright>
+                <timeline
+                  ref="timelineRef"
+                  :configdata="configdata"
+                  @open="openTimelineDetail"
+                  @add="openAddEvent"
+                ></timeline>
             </v-col>
         </v-row>
     </div>
@@ -252,6 +258,25 @@
           </div>
         </v-card>
     </v-dialog>
+
+    <!-- 时间河：事件详情弹窗 -->
+    <timeline-detail
+      v-model="dialog3"
+      :event-data="openEventData"
+      @comment-added="onCommentAdded"
+    ></timeline-detail>
+
+    <!-- 时间河：新增事件弹窗 -->
+    <timeline-add-event
+      v-model="dialog4"
+      @added="onEventAdded"
+    ></timeline-add-event>
+
+    <!-- 右上角留言板（浮动按钮+弹窗自包含） -->
+    <message-board />
+
+    <!-- 右下角数字分身（浮动按钮+聊天面板自包含） -->
+    <digital-twin />
   </v-app>
 </template>
 

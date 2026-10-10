@@ -1,14 +1,14 @@
 const config = {
 	//网页元数据
 	metaData: {
-		title: 'Leleo的个人主页🎉',
-		description: '欢迎来到Leleo的奇妙世界！',
-		keywords: 'Leleo,leleo,个人主页,个人网站',
+		title: 'FN的个人主页🎉',
+		description: '欢迎来到FN的奇妙世界！',
+		keywords: 'FN,fn,个人主页,个人网站',
 		icon: '/favicon.ico'   //网页图标，支持外链
 	},
 
 	avatar: "/img/avatar.jpg", // 头像
-	welcometitle: "Hi, I'm Leleo", // 标题
+	welcometitle: "Hi, I'm FN", // 标题
 
 	// 颜色配置
 	color: {
@@ -22,7 +22,7 @@ const config = {
 	blur: 5, // 毛玻璃模糊效果
 
 	// 我的标签
-	tags: ['乐观开朗', '温柔体贴', '随和亲切', '冷静沉着', '才思敏捷', '风趣幽默', '刚正不阿', '善解人意'],
+	tags: ['薄肌理论践行者', '御风骑士', '影厅钉子户', '社牛晚期', '行走的段子库', '多巴胺充电宝', '爆米花品鉴师', '城市漫游者'],
 
 	// 默认背景壁纸
 	background: {
@@ -47,13 +47,34 @@ const config = {
 
 	//极坐标图数据
 	polarChart: {
-		skills: ['Vue.js', 'React', 'JavaScript', 'Node', 'Java', 'Python', 'linux', 'Docker', 'MySQL', 'MongoDB', 'AWS'],
-		skillPoints: [85, 78, 88, 90, 80, 78, 85, 65, 82, 78, 70],
+		skills: ['Python', 'linux', 'Docker', 'MySQL'],
+		skillPoints: [78, 85, 65, 82],
 	},
+
+	//时间河（时间线事件流）
+	timeline: [
+		{
+			id: 'init-1',
+			time: '2026-10-08',
+			title: '开通了个人主页',
+			summary: '终于把 leleo-home-page 搭起来了',
+			content: '折腾了一下午 Vite + Vuetify，从 GitHub fork 到本地跑通，改了名字、换了标签、加了时间河。\n\n以后这里就是我记录生活的小角落啦~',
+			comments: [
+				{ time: '2026-10-09T08:30:00', text: '第二天就加了时间河，效率可以啊' }
+			]
+		},
+		{
+			id: 'init-2',
+			time: '2026-10-01',
+			title: '国庆骑行 50km',
+			summary: '从家骑到东湖再回来，腿都快断了',
+			content: '天气不错，沿着东湖绿道骑了一圈。\n\n中途还跟一个骑友聊了半小时，他说他每天骑 30km，我悟了。'
+		}
+	],
 
 	//社交按钮
 	socialPlatformIcons: [
-		{ icon: "mdi-github", link: "https://www.github.com/leleo886" },
+		{ icon: "mdi-github", link: "https://github.com/sunshinehugeboy" },
 		{ icon: "mdi-email", link: "mailto:leleo886@foxmail.com" },
 		{ icon: "mdi-qqchat", link: "https://im.qq.com/" },
 		{ icon: "mdi-wechat", link: "https://wx.qq.com/" },
@@ -140,17 +161,36 @@ const config = {
 
 	//项目卡片 其中 字段"show"控制初始卡片的text是否展开
 	projectcards: [
-		{ go: "🚀 前往", img: "/img/sunshine.jpg", title: "Project 1", subtitle: "1,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🗂️ 前往", img: "/img/sunshine.jpg", title: "Project 2", subtitle: "2,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "📝 前往", img: "/img/sunshine.jpg", title: "Project 3", subtitle: "3,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "👍 前往", img: "/img/sunshine.jpg", title: "Project 4", subtitle: "4,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🗃 前往", img: "/img/sunshine.jpg", title: "Project 5", subtitle: "5,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🎨 前往", img: "/img/sunshine.jpg", title: "Project 6", subtitle: "6,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "💍 前往", img: "/img/sunshine.jpg", title: "Project 7", subtitle: "7,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🔍 前往", img: "/img/sunshine.jpg", title: "Project 8", subtitle: "8,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
+		{go:"🚀 前往",img:"/img/pEEZToj.jpg",title:"博客",subtitle:"写不了一点",text:"所以你打不开🤣🤣🤣。哈哈，这博客怕是得了“写作拖延症”，连打开都成了“薛定谔的猫”——你不点进去，永远不知道它到底是空的还是满的。或许它正在偷偷酝酿一篇惊天动地的文章，只是还没找到灵感，或者干脆在摸鱼。总之，博客的门关得紧紧的，仿佛在说：“今天不营业，改天再来吧！” 😂",url:"",show: false},
+		{go:"🔍 前往",img:"/img/pEEZJo9.jpg",title:"Lopic",subtitle:"一个图床画廊管理系统，支持图片上传、管理和画廊展示",text:"仓库地址：https://github.com/leleo886/lopic",url:"https://lopic6.leleo.top",show: false},
+		{go:"🗃 前往",img:"/img/pEEZIeg.jpg",title:"二级域名",subtitle:"免费获取本站二级域名",text:"感觉会成为“互联网街边的快闪店”，开得快，关得也快。",url:"https://sds.leleo.top",show: false},
+		{go:"🗂️ 前往",img:"/img/pEEZ0sO.jpg",title:"网盘",subtitle:"云端的百宝箱，数据的避风港",text:"它不只是一个存储空间，更像是数字世界的“哆啦A梦口袋”，想要什么，一掏就有，只是别忘了，口袋再大，也得记得整理，不然找起文件来，比在现实世界找一只袜子还难!",url:"https://pan.leleo.top",show: false},
+		{go:"🍨 前往",img:"/img/pEEZyod.jpg",title:"赛博要饭",subtitle:"赛博要饭-科技化缘 一码在手-天下我有",text:"这哪里是乞讨，分明是互联网时代的“云化缘”，扫码即功德，打赏即缘分。施主，随喜赞叹啊！",url:"/sbyf/index.html",show: false},
+		{go:"👍 前往",img:"/img/pEEZfQf.jpg",title:"意见反馈",subtitle:"反馈是进步的阶梯，吐槽是创新的源泉",text:"就像是给产品经理的“情书”，字里行间充满了期待与吐槽。",url:"/fk.html",show: false},
+		{go:"💍 前往",img:"/img/LoMongo.png",title:"LoMongo",subtitle:"MongoDB 安卓版连接客户端",text:"一个支持 MongoDB 服务数据浏览与检索的 Android 客户端，使用 Tauri2 与 Rust。",url:"/docs/LoMongo/",show: false},
+		{go:"🎨 前往",img:"/img/pEEmOqU.png",title:"本站数据报",subtitle:"让你的数据会说话，让你的网站更出彩",text:"来自51.LA网站统计支持，网站流量、用户行为、转化效果，一屏尽览，让你运筹帷幄之中，决胜千里之外！",url:"https://v6.51.la/s/RL74ARz4fnShAy9",show: false}
 	],
 
-	statement: ["备案号：XXICP备123456789号", "Copyright © 2025 Leleo"],
+	//赞助更新时间与感言
+	sponsorUpdateTime:"2026-8-13 20:40:00 感谢在座各位的慷慨解囊。说实话，你们的信任让我压力很大，毕竟我长这么大，除了年龄和体重，还没什么东西‘涨’得这么快过。",
+
+	//赞助名单
+	sponsors: [
+		{name:"煎饼果子",times:1,dates:["2026-08-13 14:17:51"]},
+		{name:"不相心-w-",times:1,dates:["2026-07-26 20:14:01"]},
+		{name:"💰未留姓名的富豪",times:2,dates:["2026-03-13 13:47:20","2026-06-09 19:53:54"]},
+		{name:"柠檬初夏",times:4,dates:["2025-12-08 10:54:04","2025-12-08 10:55:08","2025-12-08 10:55:46","2025-12-08 10:56:22"]},
+		{name:"拌饭总比困难多",times:1,dates:["2025-10-10 10:51:28"]},
+		{name:"🌟星眸杏杳",times:3,dates:["2025-08-26 15:00:23","2025-08-26 15:01:47","2025-08-26 15:02:23"]},
+		{name:"勇者再上",times:1,dates:["2025-08-17 15:57:59"]},
+		{name:"ericQ",times:1,dates:["2025-08-16 12:42:14"]},
+		{name:"、",times:1,dates:["2025-06-11 16:20:53"]},
+		{name:"澪和",times:2,dates:["2025-06-11 10:48:37","2025-06-11 10:50:53"]},
+		{name:"未来信息2⁷⁶⁸",times:1,dates:["2025-03-24 10:36:41"]},
+		{name:"Spark",times:1,dates:["2025-01-17 09:04:41"]}
+	],
+
+	statement: ["备案号：XXICP备123456789号", "Copyright © 2025 FN"],
 }
 
 export default config
